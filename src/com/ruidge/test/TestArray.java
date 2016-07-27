@@ -1,6 +1,6 @@
 package com.ruidge.test;
 
-public class Test {
+public class TestArray {
 
     public static void main(String[] args) {
         String[] arr1 = {"1", "2", "3"};
