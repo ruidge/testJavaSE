@@ -90,13 +90,14 @@ public class TestGson {
 
 
     class Result {
-        String resultCode;
-        String resultMsg;
+        //可以没有setter,getter;
+        protected String resultCode;
+        protected String resultMsg;
 
     }
 
     class ChildResult extends Result {
-        JsonArray result;
+        private JsonArray result;
 
         @Override
         public String toString() {
