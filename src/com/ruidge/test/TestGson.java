@@ -27,7 +27,7 @@ public class TestGson {
         System.out.println(newMap.get("two"));
 
         String resultStr = "{\n" +
-                "\t\"resultCode\": \"123\",\n" +
+                "\t\"resultCode\": 123,\n" +
                 "\t\"resultMsg\": \"successadfasdfs\",\n" +
                 "\t\"result\": [{\n" +
                 "\t\t\"normalRisk\": 15,\n" +
