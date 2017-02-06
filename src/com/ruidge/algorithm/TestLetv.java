@@ -16,6 +16,7 @@ public class TestLetv {
 		TestLetv self = new TestLetv(1, null);
 		System.out.println(self.fib1(45));
 		System.out.println(self.fib2(45));
+		System.out.println(self.fib3(45));
 //		 System.out.println(self.linear1(21));
 //		 System.out.println(self.linear2(21));
 
@@ -55,6 +56,7 @@ public class TestLetv {
 					b = a + b;
 				}
 			}
+            //此时i向后偏移1位
 			System.out.println("i == ii- 1 : "+(i == ii - 1 ));
 			if (ii % 2 == 0) {
 				return a;
@@ -64,6 +66,32 @@ public class TestLetv {
 		}
 
 	}
+    //i是从1开始算起
+    public int fib3(int i) {
+        if (i <= 0) {
+            return 0;
+        } else if (i == 1 || i == 2) {
+            return 1;
+        } else {
+            int a = 1;
+            int b = 1;
+            //下标3,i是从1算起
+            int ii = 3;
+            for (; ii <= i; ii++) {
+                if (ii % 2 == 0) {
+                    a = a + b;
+                } else {
+                    b = a + b;
+                }
+            }
+            if (i % 2 == 0) {
+                return a;
+            } else {
+                return b;
+            }
+        }
+
+    }
 
 	public int linear1(int i) {
 		if (i <= 0) {
