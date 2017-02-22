@@ -17,5 +17,8 @@ public class Test {
         System.out.println(Integer.MAX_VALUE / 2);
 
 
+        System.out.println(((long) (218 * 0.57 / 1000L * 100) / 100f));
+
+
     }
 }
