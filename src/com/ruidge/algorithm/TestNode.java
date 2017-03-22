@@ -1,5 +1,6 @@
 package com.ruidge.algorithm;
 
+
 /**
  * Created by lenovo on 2017/2/22.
  */
@@ -29,8 +30,8 @@ public class TestNode {
             index = index.next;
         }
         // 调用反转方法
-//        index = reverse1(head);
-        index = reverse2(head);
+        index = reverse1(head);
+//        index = reverse2(head);
 
         System.out.println("\n**************************");
         // 打印反转后的结果
@@ -52,27 +53,21 @@ public class TestNode {
         return reHead;// 反转后新链表的头结点
     }
 
-    /**
-     * 遍历，将当前节点的下一个节点缓存后更改当前节点指针
-     */
     public static Node reverse2(Node head) {
-        if (head == null)
-            return head;
-        Node cur = head;
+        if (head == null) {
+            return null;
+        }
+        Node current = head;
         Node next = head.next;
-        Node tmp;// 临时结点
         while (next != null) {
-            tmp = next.next;
-            next.next = cur;// 反转指针域的指向
+            Node tmp = next.next;
+            next.next = current;
 
-            // 指针往下移动
-            cur = next;
+            current = next;
             next = tmp;
         }
-        // 最后将原链表的头节点的指针域置为null，还回新链表的头结点，即原链表的尾结点
         head.next = null;
-
-        return cur;
+        return current;
     }
 
 }

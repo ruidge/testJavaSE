@@ -84,10 +84,30 @@ public class TestGson {
 
         ChildResult result = gson.fromJson(resultStr, ChildResult.class);
 
-        System.out.println(result.toString());
+//        System.out.println(result.toString());
+
+        String testFloat = "{\"a\":\"-1\",\"b\":\"1.3\"}";
+
+        TestFloat tf = gson.fromJson(testFloat, TestFloat.class);
+
+        System.out.println(tf);
 
     }
 
+
+    class TestFloat {
+        //可以没有setter,getter;
+        private float a;
+        private String b;
+
+        @Override
+        public String toString() {
+            return "TestFloat{" +
+                    "a=" + a +
+                    ", b='" + b + '\'' +
+                    '}';
+        }
+    }
 
     class Result {
         //可以没有setter,getter;
