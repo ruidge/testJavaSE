@@ -18,13 +18,13 @@ public class TestGson {
         Gson gson = new GsonBuilder().create();
         String json = gson.toJson(myMap);
 
-        System.out.println(json);
+//        System.out.println(json);
 
         Type typeOfHashMap = new TypeToken<Map<String, String>>() {
         }.getType();
         Map<String, String> newMap = gson.fromJson(json, typeOfHashMap); // This type must match TypeToken
-        System.out.println(newMap.get("one"));
-        System.out.println(newMap.get("two"));
+//        System.out.println(newMap.get("one"));
+//        System.out.println(newMap.get("two"));
 
         String resultStr = "{\n" +
                 "\t\"resultCode\": 123,\n" +
@@ -86,7 +86,7 @@ public class TestGson {
 
 //        System.out.println(result.toString());
 
-        String testFloat = "{\"a\":\"-1\",\"b\":\"1.3\"}";
+        String testFloat = "{\"a\":\"-1\",\"b\":\"1.3\",\"c\":\"1,300\"}";
 
         TestFloat tf = gson.fromJson(testFloat, TestFloat.class);
 
@@ -99,12 +99,14 @@ public class TestGson {
         //可以没有setter,getter;
         private float a;
         private String b;
+        private double c;
 
         @Override
         public String toString() {
             return "TestFloat{" +
                     "a=" + a +
                     ", b='" + b + '\'' +
+                    ", c=" + c +
                     '}';
         }
     }
