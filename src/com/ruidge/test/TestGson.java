@@ -86,7 +86,7 @@ public class TestGson {
 
 //        System.out.println(result.toString());
 
-        String testFloat = "{\"a\":\"-1\",\"b\":\"1.3\",\"c\":\"1,300\"}";
+        String testFloat = "{\"a\":\"-1\",\"b\":\"1.3\",\"c\":\"1300\",\"d\":\"12.0\"}";
 
         TestFloat tf = gson.fromJson(testFloat, TestFloat.class);
 
@@ -100,6 +100,7 @@ public class TestGson {
         private float a;
         private String b;
         private double c;
+        private int d;
 
         @Override
         public String toString() {
@@ -107,6 +108,7 @@ public class TestGson {
                     "a=" + a +
                     ", b='" + b + '\'' +
                     ", c=" + c +
+                    ", d=" + d +
                     '}';
         }
     }

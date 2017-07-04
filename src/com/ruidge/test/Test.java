@@ -1,6 +1,7 @@
 package com.ruidge.test;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
 
 public class Test {
 
@@ -27,6 +28,15 @@ public class Test {
 
 //        System.out.println(((long) (218 * 0.57 / 1000L * 100) / 100f));
 
+        ArrayList<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        System.out.println(list.toString());
+        list.set(1, "b");
+        list.set(2, "c");
+        System.out.println(list.toString());
 
     }
 }
