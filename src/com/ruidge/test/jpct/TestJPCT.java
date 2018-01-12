@@ -12,16 +12,18 @@ import java.util.zip.ZipOutputStream;
 
 public class TestJPCT {
     public static void main(String[] args) {
-        serialFu();
-        zipFu();
+//        serialFu();
+//        zipFu();
         serialMascot();
         zipMascot();
+//        serialLantern();
+//        zipLantern();
     }
 
 
     private static void serialMascot() {
-        String mascotPath = "file/dan.3ds";
-        float mascotScale = 1f / 40;
+        String mascotPath = "file/mascot.3ds";
+        float mascotScale = 1f / 10;
         try {
             FileInputStream fuStream = new FileInputStream(mascotPath);
             Object3D object3D = JPCTUtil.load3DModel(fuStream, mascotScale);
@@ -36,8 +38,8 @@ public class TestJPCT {
     }
 
     private static void serialFu() {
-        String fuPath = "file/fu.3ds";
-        float fuScale = 1f;
+        String fuPath = "file/fu1.3ds";
+        float fuScale = 1f / 2;
         String textureFu = "TextureFu";
         try {
             FileInputStream fuStream = new FileInputStream(fuPath);
@@ -49,16 +51,33 @@ public class TestJPCT {
             object3D.strip();
             object3D.build();
             DeSerializer deSerializer = new DeSerializer();
-            deSerializer.serialize(object3D, new FileOutputStream("file/fu.3ds.serial"), true);
+            deSerializer.serialize(object3D, new FileOutputStream("file/fu1.3ds.serial"), true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void serialLantern() {
+        String fuPath = "file/lantern1.3ds";
+        float fuScale = 1 / 10f;
+        ;
+        try {
+            FileInputStream fuStream = new FileInputStream(fuPath);
+            Object3D object3D = JPCTUtil.load3DModel(fuStream, fuScale);
+            object3D.compile();
+            object3D.strip();
+            object3D.build();
+            DeSerializer deSerializer = new DeSerializer();
+            deSerializer.serialize(object3D, new FileOutputStream("file/lantern1.3ds.serial"), true);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private static void zipFu() {
-        String fuPath = "file/fu.3ds.serial";
+        String fuPath = "file/fu1.3ds.serial";
         try {
-            FileOutputStream fos = new FileOutputStream("file/fu.3ds.serial.zip");
+            FileOutputStream fos = new FileOutputStream("file/fu1.3ds.serial.zip");
             ZipOutputStream zipOut = new ZipOutputStream(fos);
             File fileToZip = new File(fuPath);
             FileInputStream fis = new FileInputStream(fileToZip);
@@ -69,9 +88,6 @@ public class TestJPCT {
             while ((length = fis.read(bytes)) >= 0) {
                 zipOut.write(bytes, 0, length);
             }
-            zipOut.close();
-            fis.close();
-            fos.close();
             zipOut.close();
             fis.close();
             fos.close();
@@ -99,6 +115,27 @@ public class TestJPCT {
             zipOut.close();
             fis.close();
             fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+        }
+    }
+
+    private static void zipLantern() {
+        String mascotPath = "file/lantern1.3ds.serial";
+        try {
+            FileOutputStream fos = new FileOutputStream("file/lantern1.3ds.serial.zip");
+            ZipOutputStream zipOut = new ZipOutputStream(fos);
+            File fileToZip = new File(mascotPath);
+            FileInputStream fis = new FileInputStream(fileToZip);
+            ZipEntry zipEntry = new ZipEntry(fileToZip.getName());
+            zipOut.putNextEntry(zipEntry);
+            final byte[] bytes = new byte[1024];
+            int length;
+            while ((length = fis.read(bytes)) >= 0) {
+                zipOut.write(bytes, 0, length);
+            }
             zipOut.close();
             fis.close();
             fos.close();
