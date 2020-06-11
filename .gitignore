@@ -56,3 +56,4 @@ hs_err_pid*
 # Created by .ignore support plugin (hsz.mobi)
 /gradlew
 /gradlew.bat
+/gradle/wrapper/gradle-wrapper.properties
