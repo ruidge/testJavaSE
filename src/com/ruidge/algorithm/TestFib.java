@@ -1,11 +1,11 @@
 package com.ruidge.algorithm;
 
-public class TestLetv {
+public class TestFib {
 
 	private final int i;
-	private final TestLetv tl;
+	private final TestFib tl;
 
-	public TestLetv(int i, TestLetv tl) {
+	public TestFib(int i, TestFib tl) {
 		super();
 		this.i = i;
 		this.tl = tl;
@@ -13,7 +13,7 @@ public class TestLetv {
 
 	public static void main(String[] args) {
 
-		TestLetv self = new TestLetv(1, null);
+		TestFib self = new TestFib(1, null);
 		System.out.println(self.fib1(45));
 		System.out.println(self.fib2(45));
 		System.out.println(self.fib3(45));
